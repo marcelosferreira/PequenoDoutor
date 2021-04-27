@@ -1,0 +1,8 @@
+<h1>Lista de Alunos</h1>
+
+{% for aluno in object_list %}
+    <h2>{{ aluno.nomeAluno}}</h2>
+    <h2>{{ aluno.emailAluno}}</h2>
+{% empty %}
+    <h2>NADA CADASTRADO</h2>
+{% endfor %}

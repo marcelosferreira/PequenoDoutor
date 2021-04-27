@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block banner %} 
+
+{% endblock %}
+
+{% block content %} 
+{% for aluno in object_list %}
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+  <div class="container">
+    <h2>Área do Aluno</h2>
+    <p>Seja bem vindo {{ aluno.nomeAluno }}. Nessa página é possível visualizar os cursos que você está inscrito e editar suas informações pessoais.</p>
+  </div>
+</div><!-- End Breadcrumbs -->
+
+
+<!-- ======= Courses Section ======= -->
+
+<section id="courses" class="courses">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+      {% for turma in aluno.turmasAluno.all %}
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="course-item">
+          <img src="assets/img/PequenoDoutor.png" class="img-fluid" alt="...">
+          <div class="course-content">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4>Biologia</h4>
+              <p class="price">Inscrito</p>
+            </div>
+
+            <h3><a href="{% url 'cursoDetail' turma.pk %}">{{ turma.cursoTurma.nomeCurso }}</a></h3>
+            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.
+            </p>
+            <div class="trainer d-flex justify-content-between align-items-center">
+              <div class="trainer-profile d-flex align-items-center">
+                <img src="/media/{{ turma.cursoTurma.professorCurso.avatarProfessor }}" class="img-fluid" alt="">
+                <span>{{ turma.cursoTurma.professorCurso.nomeProfessor }}</span>
+              </div>
+              <div class="trainer-rank d-flex align-items-center">
+                <i class="bx bx-user"></i>&nbsp;50
+                &nbsp;&nbsp;
+                <i class="bx bx-heart"></i>&nbsp;65
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End Course Item-->
+      {% endfor %}
+    </div>
+
+  </div>
+</section><!-- End Courses Section -->
+
+
+
+{% endfor %}
+{% endblock %}
