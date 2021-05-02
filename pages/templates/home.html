@@ -4,20 +4,30 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
+    {% if request.user.is_authenticated %}
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h5>Acesse a sua conta abaixo:</h5>
+      <h5 style="color: red; font-size: 1.15em;">Seja bem-vindo Aluno, você já está logado.</h5>
       <!--<h1>Learning Today,<br>Leading Tomorrow</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <a href="courses.html" class="btn-get-started">Get Started</a>-->
-        <div class="col-lg-12 mt-5 mt-lg-0">
-
-          <form method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Login">
-          </form>
-
-         </div>
+        
     </div>
+    {% else %}
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+      <h5 style="color: red; font-size: 1.15em;">Acesse a sua conta abaixo:</h5>
+      <!--<h1>Learning Today,<br>Leading Tomorrow</h1>
+          <h2>We are team of talented designers making websites with Bootstrap</h2>
+          <a href="courses.html" class="btn-get-started">Get Started</a>-->
+      <div class="col-lg-12 mt-5 mt-lg-0">
+    
+        <form method="post">{% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Login">
+        </form>
+    
+      </div>
+    </div>
+    {% endif %}
   </section><!-- End Hero -->
 
 {% endblock %}
@@ -29,8 +39,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About</h2>
-          <p>Sobre o projeto</p>
+          <h2>Sobre</h2>
+          <p>O projeto</p>
         </div>
 
         <div class="row">
@@ -66,22 +76,22 @@
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">1232</span>
-            <p>Students</p>
+            <p>Números</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">64</span>
-            <p>Courses</p>
+            <p>Do</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">42</span>
-            <p>Events</p>
+            <p>Projeto</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">15</span>
-            <p>Trainers</p>
+            <p>Outro</p>
           </div>
 
         </div>
