@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.admin.models import LogEntry, ADDITION
+from datetime import datetime
+
 
 # Create your models here.
 #criar os modelos do site e fazer os migrates pro banco
@@ -39,10 +42,11 @@ class Curso(models.Model):
 
 class Turma(models.Model):
 	idTurma = models.CharField(max_length=255)
+	nomeTurma = models.CharField(max_length=255)
 	cursoTurma = models.ForeignKey(Curso, on_delete=models.CASCADE)
 	
 	def __str__(self):
-		return self.idTurma
+		return self.nomeTurma
 
 
 class Aluno(models.Model):
@@ -50,8 +54,26 @@ class Aluno(models.Model):
 	emailAluno = models.CharField(max_length=255)
 	avatarAluno = models.CharField(max_length=255)
 	userAluno = models.ForeignKey(User, on_delete=models.PROTECT)
-	turmasAluno = models.ManyToManyField(Turma)
+	turmaAluno = models.ForeignKey(Turma, on_delete=models.PROTECT, blank=True, null=True)
 	
 	def __str__(self):
 		return self.nomeAluno
+
+class Chat(models.Model):
+	turmaChat = models.ForeignKey(Turma, on_delete=models.CASCADE)
+	alunoChat = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+	mensagemChat = models.CharField(max_length=255)
+	
+	def __str__(self):
+		return self.mensagemChat
+
+class Room(models.Model):
+    name = models.CharField(max_length=1000)
+    turmaRoom = models.ForeignKey(Turma, on_delete=models.CASCADE, blank=True, null=True)
+
+class Message(models.Model):
+    value = models.CharField(max_length=1000000)
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    user = models.CharField(max_length=1000000)
+    room = models.CharField(max_length=1000000)
 

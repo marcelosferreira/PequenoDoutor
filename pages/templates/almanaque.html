@@ -1,0 +1,70 @@
+{% extends 'layoutb.html' %}
+{% load static %}
+{% block banner %}
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h3>Hora de aprender um pouco mais sobre as infecções sexualmente transmissíveis</h3>
+  </div>
+</div><!-- End Breadcrumbs -->
+{% endblock %}
+
+{% block container %}
+<section id="course-details" class="course-details">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+      <div class="col-lg-7">
+        <div id="magazine">
+          <div style="background-image:url(static/img/pages/1.jpg);"></div>
+          <div style="background-image:url(static/img/pages/2.jpg);"></div>
+          <div style="background-image:url(static/img/pages/3.jpg);"></div>
+          <div style="background-image:url(static/img/pages/4.jpg);"></div>
+          <div style="background-image:url(static/img/pages/5.jpg);"></div>
+          <div style="background-image:url(static/img/pages/6.jpg);"></div>
+          <div style="background-image:url(static/img/pages/7.jpg);"></div>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Marcar atividade como concluída
+          </label>
+        </div>
+      </div>
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-4">
+
+        <div id="box-branco">
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <p style="font-size: 14px; font-weight: bold; margin-top: 10px;">Informaçoes Adicionais (Espaço Editável do Professor)</p>
+            
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col"><u>Link de Notícias:</u></div>
+              <div class="col"><u>link</u></div>
+              <div class="w-100"></div>
+              <div class="col"><u>Link de Vídeos:</u></div>
+              <div class="col"><u>link</u></div>
+              <div class="w-100"></div>
+              <div class="col"><u>Outras Atividades:</u></div>
+              <div class="col"><u>link</u></div>
+            </div>
+          </div>
+          <p>&nbsp;</p>
+
+          <!--<button class="btn_nav home_link">Início da lição</button>
+          <button class="btn_nav contact_link">Sair</button>-->
+          <a href="{% url 'alunoList' %}" class="get-started-btn">Sair</a>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Cource Details Section -->
+{% endblock %}

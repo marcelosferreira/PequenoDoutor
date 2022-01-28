@@ -26,10 +26,18 @@
 
         <div class="row">
           <div class="col-lg-8">
-            <img src="/media/{{ turma.cursoTurma.imagemCurso }}" class="img-fluid" alt="">
+            <!--<img src="/media/{{ turma.cursoTurma.imagemCurso }}" class="img-fluid" alt="">-->
+            <iframe width="690" height="415" src="https://www.youtube.com/embed/K736DkuK7p8" title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
             <h3>{{ turma.cursoTurma.nomeCurso }}</h3>
             <p>
-              Texto explicativo sobre o curso e as aulas blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla.
+              O portal, construído a partir de um projeto de dissertação do programa de pós-graduação em Ensino de Ciências – UFF
+              (Universidade Federal Fluminense), visa aumentar o envolvimento de docentes e alunos através do uso de metodologias
+              ativas no processo de ensino-aprendizagem, com enfoque no Ensino híbrido e no modelo de sala de aula invertida.</p>
+              <p>As tecnologias que emergiram a partir do século passado, modificaram a maneira de viver do ser humano, as relações
+              interpessoais, as maneiras de se comunicar e, sobretudo, as maneiras de se aprender. Mas o local em que está centrada
+              tal função na sociedade, a escola, pouco se modificou para acompanhar tais avanços.
             </p>
           </div>
           <div class="col-lg-4">
@@ -51,7 +59,7 @@
 
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Turma</h5>
-              <p>BUM</p>
+              <p>{{ turma.nomeTurma }}</p>
             </div>
 
           </div>
@@ -88,8 +96,8 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>{{ aula.nomeCompletoAula }}</h3>
                     <p class="font-italic">{{ aula.textoAula }}
-                    <a href="internaCurso.html" class="get-started-btn">Iniciar Aula</a></p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <a href="{% url 'almanaque' %}" class="get-started-btn">Iniciar Aula</a></p>
+                    <p>Inserir texto alternativo</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/course-details-tab-1.png" alt="" class="img-fluid">
@@ -102,9 +110,13 @@
               <div class="tab-pane active pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Sua aula navegue blabla</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>Que tal mudarmos um pouco a nossa aula tradicional?</h3>
+                    <!--<p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>-->
+                    <p>Este conjunto de práticas pedagógicas elaboradas com a temática nas ISTs (Infecções sexualmente transmissíveis) busca
+                    auxiliar os professores na construção de atividades que conferirão maior protagonismo aos estudantes.</p>
+                    <p>Mas calma! Não é o intuito deste site dizer o que o professor tem que fazer. O portal possui espaços editáveis para que
+                    você possa conduzir a sua aula como desejar, adicionando reportagens, vídeos e tudo que achar pertinente para que nossos
+                    alunos estejam cada dia mais engajados no tema, e o principal, cuidando da sua saúde e de seus parceiros!</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/course-details-tab-2.png" alt="" class="img-fluid">

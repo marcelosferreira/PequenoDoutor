@@ -21,29 +21,31 @@
   <div class="container" data-aos="fade-up">
 
     <div class="row" data-aos="zoom-in" data-aos-delay="100">
-
-      {% for turma in aluno.turmasAluno.all %}
+      
+      {% for aluno in object_list %}
       <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
         <div class="course-item">
-          <img src="assets/img/PequenoDoutor.png" class="img-fluid" alt="...">
+          
+          <img src="/media/{{ aluno.turmaAluno.cursoTurma.imagemCurso }}" class="img-fluid" alt="...">
           <div class="course-content">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <h4>Biologia</h4>
               <p class="price">Inscrito</p>
             </div>
 
-            <h3><a href="{% url 'cursoDetail' turma.pk %}">{{ turma.cursoTurma.nomeCurso }}</a></h3>
-            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.
+            <h3><a href="{% url 'cursoDetail' aluno.turmaAluno.pk %}">{{ aluno.turmaAluno.cursoTurma.nomeCurso }}</a></h3>
+            <p>Este conjunto de práticas pedagógicas elaboradas com a temática nas ISTs (Infecções sexualmente transmissíveis) busca
+            auxiliar os professores na construção de atividades que conferirão maior protagonismo aos estudantes.
             </p>
             <div class="trainer d-flex justify-content-between align-items-center">
               <div class="trainer-profile d-flex align-items-center">
-                <img src="/media/{{ turma.cursoTurma.professorCurso.avatarProfessor }}" class="img-fluid" alt="">
-                <span>{{ turma.cursoTurma.professorCurso.nomeProfessor }}</span>
+                <img src="/media/{{ aluno.turmaAluno.cursoTurma.professorCurso.avatarProfessor }}" class="img-fluid" alt="">
+                <span>{{ aluno.turmaAluno.cursoTurma.professorCurso.nomeProfessor }}</span>
               </div>
               <div class="trainer-rank d-flex align-items-center">
-                <i class="bx bx-user"></i>&nbsp;50
+                <i class="bx bx-user"></i>&nbsp;0
                 &nbsp;&nbsp;
-                <i class="bx bx-heart"></i>&nbsp;65
+                <i class="bx bx-heart"></i>&nbsp;0
               </div>
             </div>
           </div>

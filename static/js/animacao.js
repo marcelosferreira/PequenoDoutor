@@ -27,15 +27,15 @@ $('.projects_link').click(function() {
   }, 1500);
 });
 
-$('.skills_link').click(function() {
+$('.sala_link').click(function() {
   setTimeout(function() {
-    $('.skills').addClass('fadeIn');
+    $('.sala').addClass('fadeIn');
   }, 1500);
 });
 
-$('.about_link').click(function() {
+$('.sala-interna_link').click(function() {
   setTimeout(function() {
-    $('.about').addClass('fadeIn');
+    $('.sala-interna').addClass('fadeIn');
   }, 1500);
 });
 

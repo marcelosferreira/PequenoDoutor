@@ -4,9 +4,17 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
+    
+
     {% if request.user.is_authenticated %}
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h5 style="color: red; font-size: 1.15em;">Seja bem-vindo Aluno, você já está logado.</h5>
+
+
+      <h5 style="color: red; font-size: 1.15em;">
+        Seja bem-vindo Aluno, você já está logado.</h5>
+      <h1>Práticas Pedagógicas sobre<br>Infecções Sexualmente Transmissíveis</h1>
+      <h2>Portal voltado a docentes que desejam implantar ensino híbrido em suas aulas de ISTs</h2>
+      
       <!--<h1>Learning Today,<br>Leading Tomorrow</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <a href="courses.html" class="btn-get-started">Get Started</a>-->
@@ -14,18 +22,17 @@
     </div>
     {% else %}
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h5 style="color: red; font-size: 1.15em;">Acesse a sua conta abaixo:</h5>
+      <!--<h5 style="color: red; font-size: 1.15em;">Acesse a sua conta abaixo:</h5>-->
+      
       <!--<h1>Learning Today,<br>Leading Tomorrow</h1>
           <h2>We are team of talented designers making websites with Bootstrap</h2>
           <a href="courses.html" class="btn-get-started">Get Started</a>-->
-      <div class="col-lg-12 mt-5 mt-lg-0">
-    
-        <form method="post">{% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Login">
-        </form>
-    
-      </div>
+      <p>&nbsp;</p>
+      <h1>Ei, Professor! Que tal uma proposta de sala de aula invertida sobre o ensino de Infecções sexualmente transmissíveis?</h1>
+      <p>&nbsp;</p>
+      <h2>Este portal foi desenvolvido por professores para professores que desejam aplicar a inversão da sala de aula! Quer saber
+      mais sobre esta metodologia? <a href="{% url 'sobre' %}" class="get-started-btn">Clique Aqui</a></h2>
+      <p>&nbsp;</p>
     </div>
     {% endif %}
   </section><!-- End Hero -->
@@ -33,6 +40,28 @@
 {% endblock %}
 
 {% block content %} 
+
+<!-- ======= Login Section ======= -->
+<section id="login" class="login">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Faça seu login</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+        <img src="assets/img/about.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-12 mt-5 mt-lg-0">
+          <form id="form1" method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <a href="#" onclick="document.getElementById('form1').submit();" class="get-started-btn">Logar</a>
+          </form>
+      </div>
+    </div>
+  </div>
+</section><!-- End Login Section -->
 
 <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -48,20 +77,24 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Escrever um texto sobre o projeto aqui.</h3>
-            <p class="font-italic">
-              Texto Resumido sobre o projeto geral...
+            <h3>Que tal mudarmos um pouco a nossa aula tradicional?</h3>
+            <p>Este conjunto de práticas pedagógicas elaboradas com a temática nas ISTs (Infecções sexualmente transmissíveis) busca
+            auxiliar os professores na construção de atividades que conferirão maior protagonismo aos estudantes.</p>
+            <p>Mas calma! Não é o intuito deste site dizer o que o professor tem que fazer. O portal possui espaços editáveis para que
+            você possa conduzir a sua aula como desejar, adicionando reportagens, vídeos e tudo que achar pertinente para que nossos
+            alunos...</p>
+            <!--<p>
+              O projeto, construído a partir do <a href="http://mestradoensinociencias.uff.br/">programa de pós-graduação em Ensino de Ciências – UFF (Universidade Federal Fluminense)</a>, visa aumentar o envolvimento de docentes e alunos através do uso de metodologias ativas no processo de ensino-aprendizagem, com enfoque no Ensino híbrido e no modelo de sala de aula invertida.
             </p>
             <ul>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              O link abaixo leva para uma página com a descrição completa do projeto.
-            </p>
-            <a href="about.html" class="learn-more-btn">Leia Mais</a>
+              <li><i class="icofont-check-circled"></i> 
+              As tecnologias que emergiram a partir do século passado, modificaram a maneira de viver do ser humano, as relações interpessoais, as maneiras de se comunicar e, sobretudo, as maneiras de se aprender.</li>
+              <li><i class="icofont-check-circled"></i>
+              Mas o local em que está centrada tal função na sociedade, a escola, pouco se modificou para acompanhar tais avanços.</li>
+              <li><i class="icofont-check-circled"></i>
+              Este conjunto de práticas pedagógicas elaboradas com a temática nas ISTs (Infecções sexualmente transmissíveis) busca auxiliar os professores na construção de atividades que conferirão maior protagonismo aos estudantes.</li>
+            </ul>-->
+            <a href="{% url 'sobre' %}" class="learn-more-btn">Clique aqui para mais informações</a>
           </div>
         </div>
 
@@ -76,22 +109,22 @@
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">1232</span>
-            <p>Números</p>
+            <p>Grandes</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">64</span>
-            <p>Do</p>
+            <p>Números</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">42</span>
-            <p>Projeto</p>
+            <p>do</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">15</span>
-            <p>Outro</p>
+            <p>Projeto</p>
           </div>
 
         </div>
