@@ -3,10 +3,25 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Professor, Aluno, Turma, Aula, Chat, Room, Message
+from .models import Professor, Aluno, Turma, Aula, Chat, Room, Quiz, Message
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
+import json
+
+
+# PASSO A PASSO PARA DEPLOY NO PYTHONANYWHERE
+# Enviar para github:
+# git add . 
+# git commit -m "mensagem"
+# git push -u origin main
+# Comandos uteis: git status (para saber o status), git remote add origin https://link do git (para criar uma branch de origem)
+# PEgar no github no Pythonanywhere
+# git pull (já ta conectado n github)
+# caso dê erro: git reset --hard (vai deletar as alterações locais)
+# tem os gits stash tbm, tem que ver untracked, drop, clear...
+# Feito isso, pd dar problema no allowed hosts, mas já mudei na fonte
+# Para fazer efeito as alterações tem que fazer o reload no painel do pyanywhere
 
 # Create your views here.
 
@@ -73,6 +88,15 @@ class Almanaque(LoginRequiredMixin, ListView):
 class PequenoDoutor(TemplateView):
     template_name = "pequenoDoutorB.html"
 
+#View do Quiz
+class Quiz(LoginRequiredMixin, ListView):
+    model = Quiz
+    template_name = 'quiz.html'
+
+    def get_queryset(self):
+        self.object_list = Chat.objects.all()
+        return self.object_list
+
 # VIEWS DO CHAT
 class ChatView(LoginRequiredMixin, ListView):
     model = Chat
@@ -87,7 +111,7 @@ class ChatView(LoginRequiredMixin, ListView):
 def home(request):
     return render(request, 'homeB.html')
 
-def room(request, room):
+def room(request):
     #username = request.GET.get('username')
     if request.user.is_authenticated:
         username = Aluno.objects.get(userAluno = request.user)

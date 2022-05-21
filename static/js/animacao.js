@@ -44,3 +44,49 @@ $('.contact_link').click(function() {
     $('.contact').addClass('fadeIn');
   }, 1500);
 });
+
+$('.quiz_link').click(function () {
+  setTimeout(function () {
+    $('.quiz').addClass('fadeIn');
+  }, 1500);
+});
+
+
+var tamanhoPagina = 1;
+var pagina = 0;
+
+function paginar() {
+  $('table > tbody > tr').remove();
+  var tbody = $('table > tbody');
+  for (var i = pagina * tamanhoPagina; i < dados.length && i < (pagina + 1) * tamanhoPagina; i++) {
+    tbody.append(
+      $('<tr>')
+        .append(dados[i][0]).append(dados[i][1]).append(dados[i][2]).append(dados[i][3]).append(dados[i][4])
+    )
+  }
+  $('#numeracao').text('Página ' + (pagina + 1) + ' de ' + Math.ceil(dados.length / tamanhoPagina));
+}
+
+function ajustarBotoes() {
+  $('#proximo').prop('disabled', dados.length <= tamanhoPagina || pagina > dados.length / tamanhoPagina - 1);
+  $('#anterior').prop('disabled', dados.length <= tamanhoPagina || pagina == 0);
+}
+
+$(function () {
+  $('#proximo').click(function () {
+    if (pagina < dados.length / tamanhoPagina - 1) {
+      pagina++;
+      paginar();
+      ajustarBotoes();
+    }
+  });
+  $('#anterior').click(function () {
+    if (pagina > 0) {
+      pagina--;
+      paginar();
+      ajustarBotoes();
+    }
+  });
+  paginar();
+  ajustarBotoes();
+});

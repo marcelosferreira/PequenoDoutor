@@ -22,6 +22,7 @@ class Aula(models.Model):
 	nomeCompletoAula = models.CharField(max_length=255)
 	textoAula = models.CharField(max_length=255)
 	textoAdicionalAula = models.CharField(max_length=255)
+	linkAula = models.CharField(max_length=255, default=None, blank=True, null=True)
 
 	def __str__(self):
 		return self.nomeAbreviadoAula
@@ -60,12 +61,14 @@ class Aluno(models.Model):
 		return self.nomeAluno
 
 class Chat(models.Model):
-	turmaChat = models.ForeignKey(Turma, on_delete=models.CASCADE)
-	alunoChat = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-	mensagemChat = models.CharField(max_length=255)
+	pergunta = models.CharField(max_length=1000000)
+	respostaA = models.CharField(max_length=1000000)
+	respostaB = models.CharField(max_length=1000000)
+	respostaC = models.CharField(max_length=1000000)
+	respostaD = models.CharField(max_length=1000000)
 	
 	def __str__(self):
-		return self.mensagemChat
+		return self.pergunta
 
 class Room(models.Model):
     name = models.CharField(max_length=1000)
@@ -77,3 +80,12 @@ class Message(models.Model):
     user = models.CharField(max_length=1000000)
     room = models.CharField(max_length=1000000)
 
+class Quiz(models.Model):
+	pergunta = models.CharField(max_length=1000000)
+	respostaA = models.CharField(max_length=1000000)
+	respostaB = models.CharField(max_length=1000000)
+	respostaC = models.CharField(max_length=1000000)
+	respostaD = models.CharField(max_length=1000000)
+
+	def __str__(self):
+		return self.pergunta

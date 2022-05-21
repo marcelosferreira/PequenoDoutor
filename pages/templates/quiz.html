@@ -29,36 +29,65 @@
       <div class="row">
         <div class="col-lg-6">
           <div id="box-quiz">
-              <h4>QUESTÃO 1</h4>
-              <h5>Infecção Sexualmente transmisspivel que pode provocar lesões genitais de alto risco, com surgimento de verrugas, que
-              podem vir a desenvolver câncer na região.
-              Assinale a doença relacionada ao relato acima:</h5>
+            <script>
+              var linha = [];
+              var dados = [];
+            </script>
+            {% for quiz in object_list %}
+              <!--<h4>QUESTÃO 1</h4>
+              <h5>{{ quiz.pergunta }}</h5>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                 <label class="form-check-label" for="exampleRadios1">
-                  HIV
+                  {{ quiz.respostaA }}
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                 <label class="form-check-label" for="exampleRadios2">
-                  HPV
+                  {{ quiz.respostaB }}
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                 <label class="form-check-label" for="exampleRadios2">
-                  SÍFILIS
+                  {{ quiz.respostaC }}
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                 <label class="form-check-label" for="exampleRadios2">
-                  GONORREIA
+                  {{ quiz.respostaD }}
                 </label>
               </div>
-              
-
+              <button id="anterior" disabled>&lsaquo; Anterior</button>
+              <span id="numeracao"></span>
+              <button id="proximo" disabled>Próximo &rsaquo;</button>
+            -->
+            <script>
+              var opcaoA = "<div class='form - check'><input class= 'form-check-input' type = 'radio' name = 'exampleRadios' id = 'exampleRadios1' value = 'option1'><label class='form-check-label' for='exampleRadios1'>{{ quiz.respostaA }}</label></div >";
+              var opcaoB = "<div class='form - check'><input class= 'form-check-input' type = 'radio' name = 'exampleRadios' id = 'exampleRadios1' value = 'option2'><label class='form-check-label' for='exampleRadios1'>{{ quiz.respostaB }}</label></div >";
+              var opcaoC = "<div class='form - check'><input class= 'form-check-input' type = 'radio' name = 'exampleRadios' id = 'exampleRadios1' value = 'option3'><label class='form-check-label' for='exampleRadios1'>{{ quiz.respostaC }}</label></div >";
+              var opcaoD = "<div class='form - check'><input class= 'form-check-input' type = 'radio' name = 'exampleRadios' id = 'exampleRadios1' value = 'option4'><label class='form-check-label' for='exampleRadios1'>{{ quiz.respostaD }}</label></div >";
+              linha = ["<h5>{{ quiz.pergunta }}</h5>", opcaoA, opcaoB, opcaoC, opcaoD];
+              dados.push(linha);
+              console.log(dados)
+            </script>
+            {% endfor %}
+            <table>
+              <thead>
+                
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2" align="center">Sem quiz cadastrado</td>
+                </tr>
+              </tbody>
+            </table>
+            <button id="anterior" disabled>&lsaquo; Anterior</button>
+            <span id="numeracao"></span>
+            <button id="proximo" disabled>Próximo &rsaquo;</button>
+            
           </div>
           
         </div>

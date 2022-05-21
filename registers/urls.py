@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import AlunoCreate, AlunoList, Aluno, CursoDetail, CursoView, ChatView, Almanaque, PequenoDoutor, SobreView
+from .views import AlunoCreate, AlunoList, Aluno, CursoDetail, CursoView, ChatView, Almanaque, Quiz, PequenoDoutor, SobreView
 from . import views
 
 
@@ -21,9 +21,11 @@ urlpatterns = [
         path('almanaque', Almanaque.as_view(), name='almanaque'),
         #URL DO PEQUENO DOC
         path('pequenoDoutor', PequenoDoutor.as_view(), name='pequenoDoutor'),
+        #URL DO QUIZ
+        path('quiz', Quiz.as_view(), name='quiz'),
         #URLS DO CHAT
         path('testee', views.home, name='home'),
-        path('<str:room>/', views.room, name='room'),
+        path('sala/', views.room, name='sala'),
         path('checkview', views.checkview, name='checkview'),
         path('send', views.send, name='send'),
         path('getMessages/<str:room>/', views.getMessages, name='getMessages'),

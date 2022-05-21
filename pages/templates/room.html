@@ -1,71 +1,147 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'layoutb.html' %}
+{% load static %}
+{% block banner %}
+
+{% endblock %}
+
+{% block banner-sala %}
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h3>Escrever qualquer coisa aqui</h3>
+  </div>
+</div><!-- End Breadcrumbs -->
+{% endblock %}
+
+{% block banner-sala-interno %}
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h3>Escrever qualquer coisa aqui</h3>
+  </div>
+</div><!-- End Breadcrumbs -->
+{% endblock %}
+
+{% block container %}
+<section id="course-details" class="course-details">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div id="box-porta">
+          <div class="interno">
+            <p>Dr. Aluno</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <a href="#" class="btn_nav sala_link">
+          <div id="box-porta">
+            <div class="interno">
+              <p>Dr. Aluno</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Cource Details Section -->
+{% endblock %}
+
+{% block container-sala %}
+<section id="course-details" class="course-details">
+  <button class="btn_nav sala-interna_link">Próxima</button>
+</section><!-- End Cource Details Section -->
+{% endblock %}
+
+{% block container-sala-interna %}
+<section id="course-details" class="course-details">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div id="box-prancheta">
+          <div id="box-prancheta-interno">
+            <div class="topico-prancheta">
+              <div class="thumb-aluno">
+                <img src="/static/img/trainers/nerdglasses.jpg" class="img-fluid" alt="">
+              </div>
+              <p> Nome do Aluno</p>
+            </div>
+            <div class="topico-prancheta">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  <h5>Sintoma 1</h5>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  <h5>Sintoma 2</h5>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  <h5>Sintoma 3</h5>
+                </label>
+              </div>
+            </div>
+
+            <div class="topico-prancheta">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Diagnóstico Final" aria-label="Recipient's username"
+                  aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div id="box-balao">
+          Chat do Grupo - {{room}}
+          <div id="display">
+          
+            <!-- Aqui aparecem mensagens salvas no bate papo-->
+          
+          </div>
+
+        </div>
+        <div class="container">
+        
+          <form id="post-form">
+            {% csrf_token %}
+            <input type="hidden" name="username" id="username" value="{{username}}" />
+            <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}" />
+            <input type="text" style="width: 430px; padding: 12px 0px; box-sizing: border-box;" name="message" id="message" />
+            <input type="submit" style="float: left;" value="Enviar">
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
 <style>
-body {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 20px;
-}
-
-.container {
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.darker {
-  border-color: #ccc;
-  background-color: #ddd;
-}
-
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.container img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-
-.container img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right:0;
-}
-
-.time-right {
-  float: right;
-  color: #aaa;
-}
 
 .time-left {
+  color: #999;
+}
+
+#display {
   float: left;
+  text-align: left;
   color: #999;
 }
 </style>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-</head>
-<body>
-
-<h2>{{room}} - DjChat</h2>
-
-<div id="display">
-
-<!-- <div class="container darker">
-  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
-  <span class="time-left">20th, April 2021</span>
-</div> -->
-
-</div>
 
 <script>
 $(document).ready(function(){
@@ -77,9 +153,11 @@ setInterval(function(){
         success: function(response){
             console.log(response);
             $("#display").empty();
-            for (var key in response.messages)
+            reverter = response.messages.reverse();
+            for (var key in reverter)
             {
-                var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                dataCompleta = new Date(reverter[key].date).toLocaleString()
+                var temp="<span class='time-left'>" + dataCompleta + "&nbsp;&nbsp;-&nbsp;&nbsp;</span><b>"+reverter[key].user+": </b>"+reverter[key].value+"<br>";
                 $("#display").append(temp);
             }
         },
@@ -90,53 +168,6 @@ setInterval(function(){
 },1000);
 })
 </script>
-
-
-<div class="container">
-    <style>
-    input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    }
-
-    input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-
-    input[type=submit]:hover {
-    background-color: #45a049;
-    }
-
-    div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    }
-    </style>
-
-    <form id="post-form">
-        {% csrf_token %}
-        <input type="hidden" name="username" id="username" value="{{username}}"/>
-        <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
-        <input type="text" name="message" id="message" width="100px" />
-        <input type="submit" value="Send">
-    </form>
-</div>
-
-
-</body>
 
 <script type="text/javascript">
   $(document).on('submit','#post-form',function(e){
@@ -159,4 +190,5 @@ setInterval(function(){
   });
 </script>
 
-</html>
+</section><!-- End Cource Details Section -->
+{% endblock %}

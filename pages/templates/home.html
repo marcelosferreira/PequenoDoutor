@@ -40,7 +40,8 @@
 {% endblock %}
 
 {% block content %} 
-
+{% if request.user.is_authenticated %}
+{% else %}
 <!-- ======= Login Section ======= -->
 <section id="login" class="login">
   <div class="container" data-aos="fade-up">
@@ -62,7 +63,7 @@
     </div>
   </div>
 </section><!-- End Login Section -->
-
+{% endif %}
 <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">

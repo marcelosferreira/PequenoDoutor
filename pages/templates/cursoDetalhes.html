@@ -96,7 +96,9 @@
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>{{ aula.nomeCompletoAula }}</h3>
                     <p class="font-italic">{{ aula.textoAula }}
-                    <a href="{% url 'almanaque' %}" class="get-started-btn">Iniciar Aula</a></p>
+                
+                      <a href="{% url aula.linkAula %}" class="get-started-btn">Iniciar Aula</a></p>
+                 
                     <p>Inserir texto alternativo</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">

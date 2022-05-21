@@ -406,8 +406,35 @@ section {
   height: 520px;
   width: 470px;
   margin-top: 30px;
-  padding-top: 30%;
+  padding: 85px 85px 50px 90px;
 }
+#box-prancheta-interno{
+  height: 100%;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+}
+.topico-prancheta{
+  height: auto;
+  width: 100%;
+  background-color:#ffffff;
+  margin-bottom: 20px;
+}
+.topico-prancheta p{
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+  padding-top: 5px;
+}
+.topico-prancheta h5{
+  font-size: 14px;
+  color: #444;
+}
+.topico-prancheta h6{
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(233, 8, 8);
+}
+
 #box-balao {
     display:inline-block; /* ou float:left, vai do seu uso */
     color:rgb(0, 0, 0);
@@ -415,11 +442,21 @@ section {
     border-top:15px solid #ffffff;
     border-left:15px solid transparent;
     background-clip: padding-box;
-    margin-top: 40%;
+    margin-top: 30%;
     width: 470px;
-    height: 250px;
+    height: 350px;
     padding: 0 10px 10px 10px;
+    overflow: scroll;
 }
+
+#box-quiz{
+  height: 520px;
+  width: 670px;
+  margin-top: 70px;
+  padding: 85px 85px 50px 0px;
+  text-align: left;
+}
+
 
 
 
@@ -427,7 +464,7 @@ section {
 /*  home
 -----------------------------------*/
 .home {
-  background: #dc3535;
+  background: #2c1a1a;
 }
 /*  Projects
 -----------------------------------*/
@@ -446,6 +483,14 @@ section {
 
 .sala-interna {
   background: url("../img/background-consultorio-pb.jpg") top center;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quiz {
+  background: url("../img/quiz.png") top center;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
